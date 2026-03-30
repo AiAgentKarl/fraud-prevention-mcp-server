@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fraud-prevention-mcp-server"
+version = "0.1.0"
+description = "MCP server for fraud prevention — IP reputation, email breach detection, URL safety, phone validation and risk scoring via free APIs (IPQualityScore, HaveIBeenPwned)."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "AiAgentKarl", email = "coach1916@gmail.com" }]
+keywords = [
+    "mcp",
+    "fraud-prevention",
+    "fraud-detection",
+    "ip-reputation",
+    "email-breach",
+    "risk-scoring",
+    "security",
+    "agent",
+    "model-context-protocol",
+    "ipqualityscore",
+    "haveibeenpwned",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Internet",
+    "Topic :: Security",
+]
+dependencies = ["mcp[cli]>=1.0.0", "httpx>=0.25.0"]
+
+[project.scripts]
+fraud-prevention-mcp-server = "fraud_prevention_mcp_server.server:main"
+
+[project.urls]
+Homepage = "https://github.com/AiAgentKarl/fraud-prevention-mcp-server"
+Repository = "https://github.com/AiAgentKarl/fraud-prevention-mcp-server"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fraud_prevention_mcp_server"]
